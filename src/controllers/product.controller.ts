@@ -23,10 +23,10 @@ export default class ProductController {
         const nome  = req.body.nome
         const preco  = Number(req.body.preco)
         if (!nome) {
-            return res.status(400).send({ message: "User nome can not be empty" });
+            return res.status(400).send({ message: "Product nome can not be empty" });
         }
         if (!preco) {
-            return res.status(400).send({ message: "User nome can not be empty" });
+            return res.status(400).send({ message: "Product nome can not be empty" });
         }
 
         const newProduct = await prisma.produto.create({
@@ -49,16 +49,16 @@ export default class ProductController {
 
     findOne = async (req: Request, res: Response) => {
         const id = Number(req.params.id)
-        if (!id) { return res.status(400).send({ message: "User id can not be empty" }); }
+        if (!id) { return res.status(400).send({ message: "Product id can not be empty" }); }
         try {
             const product = await prisma.produto.findUnique({ where: { id } })
             if (!product) {
-                return res.status(404).json({ message: "Note not found with id " + id });
+                return res.status(404).json({ message: "Product not found with id " + id });
             }
             return res.status(200).json(product)
         } catch (error) {
             return res.status(500).json({
-                message: "Error retrieving user with id " + id,
+                message: "Error retrieving product with id " + id,
                 error: error
             })
         }
@@ -70,13 +70,13 @@ export default class ProductController {
         const nome  = req.body.nome
         const preco  = Number(req.body.preco)
         if (!id) {
-            return res.status(400).send({ message: "User id can not be empty" });
+            return res.status(400).send({ message: "Product id can not be empty" });
         }
         if (!nome) {
-            return res.status(400).send({ message: "User nome can not be empty" });
+            return res.status(400).send({ message: "Product nome can not be empty" });
         }
         if (!preco) {
-            return res.status(400).send({ message: "User nome can not be empty" });
+            return res.status(400).send({ message: "Product nome can not be empty" });
         }
         try {
             const updatedProduct = await prisma.produto.update({
@@ -98,7 +98,7 @@ export default class ProductController {
     delete = async (req: Request, res: Response) => {
         const id = Number(req.params.id)
         if (!id) {
-            return res.status(400).send({ message: "User id can not be empty" });
+            return res.status(400).send({ message: "Product id can not be empty" });
         }
         try {
             const deletedProduct = await prisma.produto.delete({ where: { id } })
@@ -108,7 +108,7 @@ export default class ProductController {
             return res.status(200).json(deletedProduct)
         } catch (error) {
             return res.status(500).json({
-                message: "Error retrieving user with id " + id,
+                message: "Error retrieving product with id " + id,
                 error: error
             })
         }
