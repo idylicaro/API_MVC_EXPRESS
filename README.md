@@ -8,11 +8,30 @@
 
 # Rotas:
 ### (BASE URL) http://localhost:5050/api
-    - http://localhost:5050/api/teste
-    - http://localhost:5050/api/user/create
+- Users:
+    - (GET)     http://localhost:5050/api/users
+    - (GET)     http://localhost:5050/api/users/:id
+    - (POST)    http://localhost:5050/api/users
+    - (UPDATE)  http://localhost:5050/api/users/:id
+    - (DELETE)  http://localhost:5050/api/users/:id
+
+- Products:
+    - (GET)     http://localhost:5050/api/products
+    - (GET)     http://localhost:5050/api/products/:id
+    - (POST)    http://localhost:5050/api/products
+    - (UPDATE)  http://localhost:5050/api/products/:id
+    - (DELETE)  http://localhost:5050/api/products/:id
+
+- Sales:
+    - (GET)     http://localhost:5050/api/sales
+    - (GET)     http://localhost:5050/api/sales/:id
+    - (GET)     http://localhost:5050/api/sales?id_user=?&id_product=?
+    - (POST)    http://localhost:5050/api/sales
+    - (UPDATE)  http://localhost:5050/api/sales/:id
+    - (DELETE)  http://localhost:5050/api/sales/:id
 
 ## TODO:
 
-- [] CRUD of USERS
-- [] CRUD of PRODUCTS
-- [] CRUD of SALES
+- [X] CRUD of USERS
+- [X] CRUD of PRODUCTS
+- [X] CRUD of SALES
